@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akadh Cafeteria | Sharjah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#home"><span>☕</span> Akadh <small>CAFETERIA</small></a>
+    <nav id="nav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="login-btn" onclick="openAuth()">Login</button>
+      <button class="cart-btn" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+      <button class="hamburger" onclick="toggleNav()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">WELCOME TO AKADH CAFETERIA</p>
+        <h1>Good Food.<br><span>Good Mood.</span></h1>
+        <p>Fresh Chinese, Nepali, Indian, Pakistani and fast-food favourites — served with love in Sharjah.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#menu">View Menu</a>
+          <a class="btn outline" href="https://wa.me/971507502393" target="_blank">Order on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="intro-image"><img src="images/cafe-front-1.jpeg" alt="Akadh Cafeteria"></div>
+      <div class="intro-text">
+        <p class="eyebrow">ABOUT AKADH</p>
+        <h2>A place for food, friends & family.</h2>
+        <p>Akadh Cafeteria brings together comforting meals, quick bites, tea, coffee and fresh juices in a relaxed outdoor setting.</p>
+        <div class="stats"><div><b>30+</b><span>Food choices</span></div><div><b>24/7</b><span>Easy ordering</span></div><div><b>Sharjah</b><span>Al Mahatta</span></div></div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <p class="eyebrow">OUR MENU</p>
+        <h2>Choose Your Favourite</h2>
+        <p>Prices are shown in AED. Tap a category to explore.</p>
+      </div>
+      <div class="categories" id="categories"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section class="menu-photo">
+      <img src="images/menu-1.jpeg" alt="Akadh Cafeteria menu">
+      <img src="images/menu-2.jpeg" alt="Akadh Cafeteria Indian and Pakistani menu">
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-heading"><p class="eyebrow">AKADH CAFETERIA</p><h2>Our Place</h2></div>
+      <div class="gallery-grid">
+        <img src="images/cafe-front-2.jpeg" alt="Cafe exterior">
+        <img src="images/outdoor-1.jpeg" alt="Outdoor seating">
+        <img src="images/outdoor-2.jpeg" alt="Outdoor tables">
+        <img src="images/cafe-front-3.jpeg" alt="Cafe at night">
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">VISIT US</p>
+        <h2>Come hungry, leave happy.</h2>
+        <p>Al Mahatta Park, Al Mahatta, Sharjah, UAE</p>
+      </div>
+      <div class="contact-cards">
+        <a href="tel:+97165755001">📞 06-5755001</a>
+        <a href="https://wa.me/971507502393" target="_blank">💬 0507502393</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Al+Mahatta+Park+Al+Mahatta+Sharjah" target="_blank">📍 Open in Google Maps</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span>☕</span> Akadh <small>CAFETERIA</small></div><p>© 2026 Akadh Cafeteria. All rights reserved.</p></footer>
+
+  <div class="modal" id="authModal">
+    <div class="modal-card auth-card">
+      <button class="close" onclick="closeAuth()">×</button>
+      <h2 id="authTitle">Welcome Back</h2>
+      <p class="muted" id="authSub">Login to continue your order.</p>
+      <form onsubmit="handleAuth(event)">
+        <div id="nameWrap" class="hidden"><label>Name</label><input id="name" type="text" placeholder="Your name"></div>
+        <label>Email</label><input id="email" type="email" required placeholder="you@example.com">
+        <label>Password</label><input id="password" type="password" required minlength="4" placeholder="••••••••">
+        <button class="btn primary full" type="submit" id="authSubmit">Login</button>
+      </form>
+      <p class="switch-auth"><span id="switchText">Don't have an account?</span> <button onclick="toggleAuthMode()">Create account</button></p>
+    </div>
+  </div>
+
+  <div class="modal" id="cartModal">
+    <div class="modal-card cart-card">
+      <button class="close" onclick="closeCart()">×</button>
+      <h2>Your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span>Total</span><strong>AED <span id="cartTotal">0.00</span></strong></div>
+      <button class="btn primary full" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
